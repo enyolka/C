@@ -194,7 +194,7 @@ int main(void) {
             }
 
         }
-    }while(wybor!=4 || wybor > 4);
+    }while(wybor!=4 && wybor < 4);
     
     return 0;
 }
