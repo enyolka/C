@@ -65,13 +65,16 @@ void dodaj(struct PersonNode* pNode){
 
     char buffer[2];
     int len;
-    char* imie;
-    char* nazwisko;
+    char imie[30];
+    char nazwisko[30];
     long int numer;
     
         
     printf("Podaj imie>> ");
-    char *imie_buffer = (char *)malloc((sizeof(char)) * MAX);
+    scanf("%s",imie);
+    printf("Podaj nazwisko>> ");
+    scanf("%s",nazwisko);
+  /*  char *imie_buffer = (char *)malloc((sizeof(char)) * MAX);
     gets(imie_buffer);
     len = strlen(imie_buffer);
     imie = (char*)malloc(sizeof(char)*len + 1);
@@ -85,7 +88,7 @@ void dodaj(struct PersonNode* pNode){
     len = strlen(nazwisko_buffer);
     nazwisko = (char*)malloc(sizeof(char) * len +1);
     strcpy(nazwisko,nazwisko_buffer);
-    free(nazwisko_buffer);
+    free(nazwisko_buffer); */
         
         
         
@@ -96,8 +99,6 @@ void dodaj(struct PersonNode* pNode){
         
     dodaj_wezel(pNode,stworz_osobe(imie,nazwisko,numer));
         
-        }
-    }
 }
 
 void wyswietl(struct PersonNode* pNode){
@@ -106,7 +107,7 @@ void wyswietl(struct PersonNode* pNode){
     struct PersonNode* element = pNode->next;
     int i = 1;
     while(element!=NULL){
-        printf("\n\n%d.Imie i nazwisko: %s %s\nPesel: %ld",i,element->person->imie,element->person->nazwisko,element->person->numer);
+        printf("\n\n%d.Imie i nazwisko: %s %s\t%ld",i,element->person->imie,element->person->nazwisko,element->person->numer);
         element = element->next;
         i++;
     }
@@ -140,7 +141,7 @@ void usun(struct PersonNode* pNode,int n){
 }
 
 void opcje(void){
-    printf("|================|\n");
+    printf("\n\n|================|\n");
     printf("|=Co mam zrobic?=|\n");
     printf("|================|\n");
     printf("|======[1]=======|\n");
@@ -178,14 +179,14 @@ int main(void) {
             }
             case 2:{
                 if(dlugoscListy(lista)==0){
-                    printf("Twoja ksiazka telefoniczna jest pusta! ");
+                    printf("\n\nTwoja ksiazka telefoniczna jest pusta! \n\n");
                     break;
                 }
                 wyswietl(lista);
                 break;
             }
             case 3:{
-                printf("Ktory kontakt chcesz usunac? Podaj nr: ");
+                printf("\n\nKtory kontakt chcesz usunac? Podaj nr: ");
                 int n;
                 scanf("%d",&n);
                 usun(lista,n);
