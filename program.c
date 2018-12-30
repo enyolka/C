@@ -88,10 +88,10 @@ void fillPersonList(struct PersonNode* pNode){
 void printPeople(struct PersonNode* pNode){
     printf("\n==========================\n");
     //wez liste podan
-    struct PersonNode* people = pNode->next;
-    while(people!=NULL){
-        printf("\n\nImie i nazwisko: %s\nPesel: %s",people->person->full_name,people->person->pesel);
-        people = people->next;
+    struct PersonNode* element = pNode->next;
+    while(element!=NULL){
+        printf("\n\nImie i nazwisko: %s\nPesel: %s",element->person->full_name,element->person->pesel);
+        element = element->next;
     }
 }
 
