@@ -2,11 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #define MAX 255
-/*
 
-        GDZIE COS SIE ZJEBALO???????
-
-*/
 
 struct Osoba {
     char imie[30];
@@ -34,7 +30,7 @@ void DodajWezel(struct Wezel* lista,struct Osoba* osoba){
     NowaOsoba->next = NULL;
 
     struct Wezel* OstatniaOsoba;
-    while(lista->next!=NULL){
+    while(lista->next != NULL){
         lista = lista->next;
     }
     OstatniaOsoba = lista;
@@ -57,17 +53,19 @@ void Wczytaj_i_stworz(struct Wezel* lista){
 
 void wyswietl(struct Wezel* lista){
     struct Wezel* element = lista->next;
-    while(element->next!=NULL){
-        printf("%s %s",element->osoba->imie,element->osoba->nazwisko);
+    while(element!=NULL){
+        printf("\n%s %s",element->osoba->imie,element->osoba->nazwisko);
         element=element->next;
     }
-
 }
 
 int main(void){
     struct Wezel* lista = (struct Wezel*)malloc(sizeof(struct Wezel));
+    lista->next = NULL;
+
     Wczytaj_i_stworz(lista);
-    //wyswietl(lista);
+    Wczytaj_i_stworz(lista);
+    wyswietl(lista);
 
     return 0;
 }
